@@ -8,7 +8,7 @@
     </v-layout>
     <v-divider></v-divider>
     <ul class="articles mt-4">
-      <li v-for="item in articles" :key="item.title">
+      <li v-for="item in filteredArticles" :key="item.title">
         <article-item :content="item"></article-item>
       </li>
     </ul>
@@ -16,20 +16,22 @@
 </template>
 
 <script>
-import sources from '../util/sources';
+import SOURCES from '../util/sources';
 import ArticleItem from '@/components/ArticleItem';
 
 export default {
   data() {
     return {
-      sources: Object.values(sources),
+      sources: ['Front'].concat(Object.values(SOURCES)),
       source: {}
     };
   },
   methods: {
     articlePassesSourceFilter(article) {
-      if (this.source.id === 1) {
+      if (this.source === 'Front') {
         return true;
+      } else {
+        return article.source === this.source;
       }
     }
   },

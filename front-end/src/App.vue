@@ -26,7 +26,11 @@
       </v-content>
     </main>
     <v-footer class="brown" app>
-      <span class="white--text">About</span>
+      <router-link to="about" class="about-link">
+        <span class="white--text">
+          About
+        </span>
+      </router-link>
     </v-footer>
   </v-app>
 </template>
@@ -68,5 +72,9 @@ export default {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.about-link {
+  text-decoration: none;
 }
 </style>
